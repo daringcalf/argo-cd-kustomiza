@@ -4,3 +4,18 @@ metadata:
   name: argocd-cm 
 data: 
   timeout.reconciliation: 300s
+  resource.exclusions: |
+    - apiGroups:
+      - "*"
+      - podmonitorings.monitoring.googleapis.com
+      - podsecuritypolicies.policy
+      - nodes
+      - rbac.authorization.k8s.io
+      - argoproj.io
+      - persistentvolumes
+      - couchbase.com
+      - endpoints
+      - management.cattle.io
+      - crd.projectcalico.org
+      kinds:
+      - "*"
