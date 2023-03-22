@@ -16,14 +16,14 @@ patches:
   - path: patches/argocd-cmd-params-cm.yaml
   - target:
       kind: ClusterRole
-      name: argocd-server
+      labelSelector: "app.kubernetes.io/name=argocd-server"
     patch: |-
       - op: replace
         path: /metadata/name
         value: margocd-server
   - target:
       kind: ClusterRoleBinding
-      name: argocd-server
+      labelSelector: "app.kubernetes.io/name=argocd-server"
     patch: |-
       - op: replace
         path: /metadata/name
@@ -33,14 +33,14 @@ patches:
         value: margocd
   - target:
       kind: ClusterRole
-      name: argocd-application-controller
+      labelSelector: "app.kubernetes.io/name=argocd-application-controller"
     patch: |-
       - op: replace
         path: /metadata/name
         value: margocd-application-controller
   - target:
       kind: ClusterRoleBinding
-      name: argocd-application-controller
+      labelSelector: "app.kubernetes.io/name=argocd-application-controller"
     patch: |-
       - op: replace
         path: /metadata/name
