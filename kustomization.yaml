@@ -2,16 +2,12 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: margocd
 
-# additional resources like ingress rules, cluster and repository secrets.
 resources:
 - resources/namespace.yaml
 - github.com/argoproj/argo-cd/manifests/ha/cluster-install?ref=v2.6.6
 
 patches:
   - path: patches/argocd-cm.yaml
-  - path: patches/argocd-server-deployment.yaml
-  - path: patches/argocd-repo-server-deployment.yaml
-  - path: patches/argocd-application-controller-statefulset.yaml
   - path: patches/argocd-server-service.yaml
   - path: patches/argocd-cmd-params-cm.yaml
   - target:
