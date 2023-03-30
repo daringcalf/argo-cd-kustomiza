@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: margocd
+  namespace: margocd
+spec:
+  destination:
+    namespace: margocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: .
+    repoURL: https://github.com/daringcalf/argo-cd-kustomiza.git
+    targetRevision: main
