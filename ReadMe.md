@@ -1,13 +1,9 @@
 # Bootstrapping commands
-
 ## single node
-
-    kustomize build https://github.com/daringcalf/argo-cd-kustomiza | kubectl apply -f -
+    kubectl apply -k https://github.com/daringcalf/argo-cd-kustomiza
 ##
     curl --silent https://raw.githubusercontent.com/daringcalf/argo-cd-kustomiza/main/margocd-app.yaml | kubectl apply -f -
-
 ## ha
-
-    kustomize build https://github.com/daringcalf/argo-cd-kustomiza//ha | kubectl apply -f -
+    kubectl apply -k https://github.com/daringcalf/argo-cd-kustomiza//ha
 ##
     curl --silent https://raw.githubusercontent.com/daringcalf/argo-cd-kustomiza/main/margocd-ha-app.yaml | kubectl apply -f -
